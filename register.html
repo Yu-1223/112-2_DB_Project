@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Login Form</title>
+    <link rel="stylesheet" 
+          href="login.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <img src="lion.png" alt="Icon" class="icon">
+            <h1>獅大圖書館</h1>
+        </div>
+        <h3>請輸入註冊資料</h3>
+        <form action="">
+            <label for="first">
+                  帳號:
+              </label>
+            <input type="text" 
+                   id="first"
+                   name="first" 
+                   placeholder="填入帳號" 
+                   autocomplete="off" required>
+
+            <label for="password">
+                  密碼:
+              </label>
+            <input type="password"
+                   id="password" 
+                   name="password" 
+                   placeholder="填入密碼" 
+                   autocomplete="off" required>
+            
+            <label for="email">
+                電子郵件:
+                </label>
+            <input type="email"
+                    id="email" 
+                    name="email" 
+                    placeholder="填入郵件" 
+                    autocomplete="off" required>
+            
+
+            <div class="wrap">
+                <button type="submit"
+                        onclick="solve()">
+                    註冊
+                </button>
+            </div>
+        </form>
+        <p>已經有帳號了? 
+            <a href="login.html" 
+             style="text-decoration: none;">
+              登入
+          </a>
+      </p>
+    </div>
+</body>
+
+</html>

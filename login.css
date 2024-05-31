@@ -1,0 +1,165 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
+    margin: 0;
+    background-image: url('background.png'); /* Add your background image here */
+    background-size: cover; /* Ensure the image covers the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+.main {
+    background-color: #ffffffce;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #a66d2f;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.radio-input
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    width: 15px;
+    color: #a66d2f;
+}
+
+.radio-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0px;
+}
+
+.radio-inner
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    
+}
+
+.radio-container label {
+    margin: 0;
+    text-align: start;
+    margin-left: 10px;
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #a66d2f;
+    width: 100%;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type='radio']:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(141, 141, 141);
+    cursor: pointer;
+}
+
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #a66d2f;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(171, 171, 171);
+}
+
+.icon
+{
+    width: 45px;
+    height: 45px;
+}
+
+.title
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;   
+    margin-bottom: 0px;
+    height: 80px;
+}
+
+h1
+{
+    margin: 0;
+}
+
+h3
+{
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #a66d2f; /* Change this color to whatever you prefer */
+}
+
+

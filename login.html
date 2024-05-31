@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Login Form</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <img src="lion.png" alt="Icon" class="icon">
+            <h1>獅大圖書館</h1>
+        </div>
+        
+        <h3>請輸入帳號密碼</h3>
+        <form action="">
+            <label for="first">帳號:</label>
+            <input type="text" id="first" name="first" placeholder="輸入帳號" autocomplete="off" required>
+
+            <label for="password">密碼:</label>
+            <input type="password" id="password" name="password" placeholder="輸入密碼" autocomplete="off" required>
+
+            <div class="radio-container">
+                <div class="radio-inner">
+                    
+                    <input type="radio" id="staff" name="option" value="staff" class="radio-input" required>
+                    <label for="staff">管理者</label>
+                </div>
+                <div class="radio-inner">
+                    
+                    <input type="radio" id="reader" name="option" value="reader" class="radio-input" required>
+                    <label for="reader">讀者</label>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <button type="submit" onclick="solve()">登入</button>
+            </div>
+        </form>
+        <p>還沒有帳號嗎? 
+            <a href="register.html" style="text-decoration: none;">註冊新帳號</a>
+        </p>
+    </div>
+</body>
+
+</html>
