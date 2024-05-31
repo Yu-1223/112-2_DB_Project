@@ -211,5 +211,11 @@ input::placeholder
     font-weight: 700;
 }
 
+::selection 
+{
+    color: white;
+    background: #a66d2f;
+}
+
 
 
