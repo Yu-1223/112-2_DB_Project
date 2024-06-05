@@ -1,0 +1,127 @@
+body 
+{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('bg2.png'); /* Add your background image here */
+  background-size: cover; /* Ensure the image covers the entire page */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Fix the background image */
+  min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar 
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #5b554e;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.navbar-title 
+{
+    color: white;
+    font-size: 1.5em;
+    padding: 14px 16px;
+    text-align: center;
+    background-color: #5b554e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-icon 
+{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Space between the icon and the text */
+    margin-top: 5px;
+}
+
+.nav-list 
+{
+    list-style-type: none;
+    margin: 0px 10px;
+    padding: 0px 0px;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-left: 100px;
+}
+
+.nav-list li 
+{
+    float: left;
+}
+
+.nav-list li a 
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+
+.nav-list li a:hover 
+{   
+    color: #a49d95;
+}
+
+input[type="text"]
+{
+  width: 98%;
+}
+
+input[type="submit"] 
+{
+  color: #d5d5d5;
+  background-color: #5b554e;
+  border: 2px solid transparent; /* Set initial border style */
+  width: 100px;
+  height: 30px;
+  border-radius: 2px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+input[type="submit"]:hover 
+{
+  color: #5b554e;
+  background-color: #d5d5d5;
+  cursor: pointer;
+  border-color: #5b554e; /* Change border color on hover */
+  border-width: 2px; /* Ensure border width is the same */
+}
+
+.form-div
+{
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2
+{
+  margin: 0;
+  margin-bottom: 10px;
+  color: #5b554e;
+}
+
+
+
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pop.css">
 </head>
 <body>
     <nav class="navbar">
@@ -45,6 +46,36 @@
             </p>
         </div>
     </div>
+
+    <div class="pop-out">
+        <input type="checkbox" id="show">
+        <label for="show" class="show-btn">預約</label>
+        <div class="container">
+            <label for="show" class="close-btn" title="close">X</label>
+            <div style="align-items: center; justify-content: center; display: flex; flex-direction: column;">
+                <div class="text-title">
+                    預約資料
+                </div>
+                <div class="text-container">
+                    <div class="text">
+                        名稱:
+                    </div>
+                    <div class="text">
+                        排隊人數:
+                    </div>
+                    <div class="text">
+                        預計日期:
+                    </div>
+                    <div class="text">
+                        姓名:
+                    </div>
+                </div>
+                <button class="act-btn" id="reg-btn">
+                    預約
+                </button>
+            </div>
+        </div>
+     </div>
 
     <script>
         const searchItem = document.getElementById('search-item');
@@ -92,6 +123,11 @@
 
         // Initialize the search-by options on page load
         updateSearchByOptions();
+
+        document.getElementById('reg-btn').addEventListener('click', function() {
+            document.getElementById('show').checked = false;
+        });
+
     </script>
 
 </body>
