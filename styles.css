@@ -205,6 +205,50 @@ section
     color: #ffffff;
 }
 
+.search-result 
+{
+	margin: auto;
+    padding: 3px;
+    border: 2px solid #a66d2f; /* Border color */
+    border-radius: 5px;
+    background-color: #ffffff; /* Background color */
+    color: #a66d2f; /* Text color */
+    font-size: 16px;
+    width: 90%;
+    height: 330px;
+    font-weight: 700;/**/
+    overflow: auto
+}
+
+.profile 
+{
+	margin: auto;
+    padding: 3px;
+    border: 5px solid #a66d2f; /* Border color */
+    border-radius: 5px;
+    background-color: #ffffff; /* Background color */
+    color: #a66d2f; /* Text color */
+    font-size: 16px;
+    width: 600px;
+    height: 450px;
+    font-weight: 700;/**/
+    align-items: center;
+    overflow: auto
+}
+
+.profile-content
+{
+    /*display: flex;*/
+    width: 80%;
+    height: 95%;
+    align-items: left;
+    margin: auto;
+    background-color: #ffffff;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 40px;
+}
+
 input::placeholder 
 {
     color: #a66c2f92;
@@ -216,6 +260,5 @@ input::placeholder
     color: white;
     background: #a66d2f;
 }
-
 
 
