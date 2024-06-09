@@ -15,7 +15,7 @@
     <div style="display: flex; align-items: center; justify-content: center; margin: 0;">
         <h2 style="color:#ffffff">更新圖書資料</h2>
     </div>
-    <form action="updateBookes.php" method="post">	
+    <form action="updateBookRes.php" method="post">	
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <?php
                 $user_id = $_GET['user_id'];

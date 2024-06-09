@@ -34,13 +34,13 @@
     </nav>
 
     <div class="content" style="margin-top: 100px;">
-        <button onclick="showForm('form-1')">更新圖書資料</button>
-        <button onclick="showForm('form-2')">更新DVD資料</button>
-        <button onclick="showForm('form-3')">更新書籍借閱紀錄</button>
-        <button onclick="showForm('form-4')">更新DVD借閱紀錄</button>
-        <button onclick="showForm('form-5')">更新書籍預約紀錄</button>
-        <button onclick="showForm('form-6')">更新DVD預約紀錄</button>
-        <button onclick="showForm('form-7')">更新活動資料</button>
+        <button onclick="showForm('form-1')">刪除圖書資料</button>
+        <button onclick="showForm('form-2')">刪除DVD資料</button>
+        <button onclick="showForm('form-3')">刪除書籍借閱紀錄</button>
+        <button onclick="showForm('form-4')">刪除DVD借閱紀錄</button>
+        <button onclick="showForm('form-5')">刪除書籍預約紀錄</button>
+        <button onclick="showForm('form-6')">刪除DVD預約紀錄</button>
+        <button onclick="showForm('form-7')">刪除活動資料</button>
     </div>
 
     <div class="data-show">
@@ -79,7 +79,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateBook_details.php\" method=\"get\">
+                        echo "<form action=\"deleteBook.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["ISBN"]}
@@ -116,7 +116,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -161,7 +161,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateDVD_details.php\" method=\"get\">
+                        echo "<form action=\"deleteDVD.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["dvd_id"]}
@@ -197,7 +197,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -241,7 +241,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateBookBorrow_details.php\" method=\"get\">
+                        echo "<form action=\"deleteBookBorrow.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["user_id"]}
@@ -264,7 +264,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -308,7 +308,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateDVDBorrow_details.php\" method=\"get\">
+                        echo "<form action=\"deleteDVDBorrow.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["user_id"]}
@@ -331,7 +331,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -374,7 +374,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateBookRes_details.php\" method=\"get\">
+                        echo "<form action=\"deleteBookRes.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["user_id"]}
@@ -393,7 +393,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -436,7 +436,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateDVDRes_details.php\" method=\"get\">
+                        echo "<form action=\"deleteDVDRes.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["user_id"]}
@@ -455,7 +455,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
@@ -498,7 +498,7 @@
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<form action=\"updateAct_details.php\" method=\"get\">
+                        echo "<form action=\"deleteAct.php\" method=\"get\">
                                 <tr>
                                     <th>
                                         {$row["user_id"]}
@@ -520,7 +520,7 @@
                                     </th>
                                     <th>
                                         <button type=\"submit\" onclick=\"solve()\">
-                                            修改
+                                            刪除
                                         </button>
                                     </th>
                                 </tr>
