@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -72,7 +72,6 @@ if ($genre == "") {
     $result3 = $conn->query($check_sql);
     if ( $result3->num_rows > 0) {
         $valid = 0;
-        echo "genre = blank<br/>";
     } 
 } else {
     $update_sql = "update book_genre

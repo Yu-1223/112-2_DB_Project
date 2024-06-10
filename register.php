@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -43,8 +43,6 @@ if (isset($_POST['first']) && isset($_POST['password']) && isset($_POST['email']
 						where user_id={$user_id} and username='{$username}' and password='{$password}' and email='{$email}';";
 		$result = $conn->query($check_sql);
 		if ($result->num_rows > 0) {
-			//$row = mysqli_fetch_assoc($result);
-			//echo $row["user_id"];
 			header("Location: login.html");
 			exit;
 		} else {

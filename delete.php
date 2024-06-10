@@ -53,14 +53,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -79,7 +79,6 @@
                                 from book_details natural join book
                                 order by ISBN asc, book_id asc;";
                 $result = $conn->query($search_sql);
-                //echo $search_sql . "<br/>";
 
                 if ($result->num_rows > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
@@ -136,14 +135,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -216,14 +215,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -287,14 +286,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -357,14 +356,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -423,14 +422,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -489,14 +488,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                /*$servername = "140.122.184.129:3310";
+                $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";*/
-                $servername = "localhost";
+                $dbname = "team4";
+                /*$servername = "localhost";
                 $username = "root";
-                $password = "anny920504";
-                $dbname = "test";
+                $password = "";
+                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);

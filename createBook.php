@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -48,7 +48,6 @@ if (isset($_POST['ISBN'])) {
 	$language = $_POST['language'];
 
     $nums = count($cutid);
-    //echo "nums = " . $nums;
     $max = 0;
     $valid = 1;
     for($x=0; $x < $nums; $x++){
@@ -57,7 +56,6 @@ if (isset($_POST['ISBN'])) {
         $result = $conn->query($check_sql);
         if ($result->num_rows > 0 || $cutid[$x] < $max) {
             $row = mysqli_fetch_assoc($result);
-            //echo "{$row["book_id"]}";
             if ($max == 0) {
                 $check_sql = "select max(book_id) as max
                                 from book;";
@@ -65,18 +63,15 @@ if (isset($_POST['ISBN'])) {
                 if ($result->num_rows == 0) {
                     echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                     echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
-                    //echo "select max book_id<br/>";
                     $valid = 0;
                     break;
                 } else {
                     $row = mysqli_fetch_assoc($result);
-                    //echo "{$row["max"]}" . "<br/>";
                     $max = $row["max"] + 1;
                 }
             }
             $cutid[$x] = $max;
             $max = $max + 1;
-            //echo $max . "<br/>";
         }
     }
     
@@ -89,17 +84,14 @@ if (isset($_POST['ISBN'])) {
             $create_sql = "insert into book_details
                             values ('{$ISBN}','{$title}','{$author}','{$publisher}','{$publish_date}',{$version},{$page_num},'{$language}',0,0);";
             $result = $conn->query($create_sql);
-            //echo $create_sql . "<br/>";
             $check_sql = "select * from book_details
                             where ISBN='{$ISBN}' and title='{$title}' and author='{$author}' and publisher='{$publisher}' and publish_date='{$publish_date}' 
                             and version={$version} and page_num={$page_num} and language='{$language}' and tot_qty=0 and avail_qty=0;";
             $result = $conn->query($check_sql);
-            //echo $check_sql . "<br/>";
             if ($result->num_rows == 0) {
                 echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                 echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
                 $valid = 0;
-                //echo "insert book_details<br/>";
             }
         }
     }
@@ -117,7 +109,6 @@ if (isset($_POST['ISBN'])) {
                 echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                 echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
                 $valid = 0;
-                //echo "insert book_id<br/>";
                 break;
             }
         }
@@ -140,7 +131,6 @@ if (isset($_POST['ISBN'])) {
                     echo "<h2 align='center'><font color='#5b554e'>新增失敗!!</font><br/></h2>";
                     echo "<li><a href=\"create.html\"><font color='#5b554e'>回到上一頁</font></a></li>";
                     $valid = 0;
-                    //echo "insert book_genre<br/>";
                     break;
                 }
             }

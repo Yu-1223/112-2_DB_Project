@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -44,7 +44,6 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
 	$language = $_POST['language'];
 
     $nums = count($cutid);
-    //echo "nums = " . $nums;
     $max = 0;
     $valid = 1;
     for($x=0; $x < $nums; $x++){
@@ -53,7 +52,6 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
         $result = $conn->query($check_sql);
         if ($result->num_rows > 0 || $cutid[$x] < $max) {
             $row = mysqli_fetch_assoc($result);
-            //echo "{$row["dvd_id"]}";
             if ($max == 0) {
                 $check_sql = "select max(dvd_id) as max
                                 from dvd;";
@@ -61,18 +59,15 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
                 if ($result->num_rows == 0) {
                     echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                     echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
-                    //echo "select max dvd_id<br/>";
                     $valid = 0;
                     break;
                 } else {
                     $row = mysqli_fetch_assoc($result);
-                    //echo "{$row["max"]}" . "<br/>";
                     $max = $row["max"] + 1;
                 }
             }
             $cutid[$x] = $max;
             $max = $max + 1;
-            //echo $max . "<br/>";
         }
     }
     
@@ -85,17 +80,14 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
             $create_sql = "insert into dvd_details
                             values ('{$title}','{$release_date}','{$publish_company}','{$actor}','{$director}',{$duration},'{$language}',0,0);";
             $result = $conn->query($create_sql);
-            //echo $create_sql . "<br/>";
             $check_sql = "select * from dvd_details
                             where title='{$title}' and release_date='{$release_date}' and publish_company='{$publish_company}' and actor='{$actor}'
                              and director='{$director}' and duration={$duration} and language='{$language}' and tot_qty=0 and avail_qty=0;";
             $result = $conn->query($check_sql);
-            //echo $check_sql . "<br/>";
             if ($result->num_rows == 0) {
                 echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                 echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
                 $valid = 0;
-                //echo "insert dvd_details<br/>";
             }
         }
     }
@@ -113,7 +105,6 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
                 echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
                 echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
                 $valid = 0;
-                //echo "insert dvd_id<br/>";
                 break;
             }
         }
@@ -136,7 +127,6 @@ if (isset($_POST['title']) && isset($_POST['release_date']) && isset($_POST['pub
                     echo "<h2 align='center'><font color='#5b554e'>新增失敗!!</font><br/></h2>";
                     echo "<li><a href=\"create.html\"><font color='#5b554e'>回到上一頁</font></a></li>";
                     $valid = 0;
-                    //echo "insert dvd_genre<br/>";
                     break;
                 }
             }

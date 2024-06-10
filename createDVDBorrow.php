@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -41,7 +41,6 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
         echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
         echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
         $valid = 0;
-        //echo "insert book_details<br/>";
     }
     if ($valid == 1) {
         $check_sql = "select * from user
@@ -51,7 +50,6 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
             echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
             echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
             $valid = 0;
-            //echo "insert book_details<br/>";
         }
     }
     if ($valid == 1) {
@@ -62,7 +60,6 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
             echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
             echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
             $valid = 0;
-            //echo "insert book_details<br/>";
         } else {
             $row = mysqli_fetch_assoc($result);
             if ($row["avail_qty"] == 0) {
@@ -77,7 +74,6 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
             echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
             echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
             $valid = 0;
-            //echo "insert book_details<br/>";
         }
     }
     
@@ -92,7 +88,6 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
             echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
             echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
             $valid = 0;
-            //echo "insert book_id<br/>";
         }
     }
 

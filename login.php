@@ -1,14 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-/*$servername = "140.122.184.129:3310";
+$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";*/
-$servername = "localhost";
+$dbname = "team4";
+/*$servername = "localhost";
 $username = "root";
-$password = "anny920504";
-$dbname = "test";
+$password = "";
+$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -38,10 +38,7 @@ if (isset($_POST['first']) && isset($_POST['password']) && isset($_POST['option'
 	$result = $conn->query($login_sql);
 	
 	if ($result->num_rows > 0) {
-		// echo "新增成功!!<br> <a href='main.php'>返回主頁</a>";
-		// 重定向用戶到下一頁
 		$row = mysqli_fetch_assoc($result);
-		//echo $row["user_id"];
 		if ($option == "staff") {
 			session_start();
 			$_SESSION["ID"] = $row["staff_id"];
