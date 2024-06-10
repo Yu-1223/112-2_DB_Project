@@ -23,10 +23,14 @@
                 $genre = $_GET["genre"];
 
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -51,7 +55,7 @@
                     echo "<tr>
                             <th>ID</th>
                             <td bgcolor=\"#5b554e\">
-                                <input type=\"text\" name=\"book_id\" value=\"{$row["book_id"]}\" required/>
+                                <input type=\"text\" name=\"book_id\" value=\"{$row["book_id"]}\" readonly/>
                                 <input type=\"hidden\" name=\"book_id_o\" value=\"{$row["book_id"]}\"/>
                             </td>
                         </tr>";
@@ -93,7 +97,7 @@
                     echo "<tr>
                             <th>類型</th>
                             <td bgcolor=\"#5b554e\">
-                                <input  type=\"text\" name=\"genre\" value=\"{$row["genre"]}\" required>
+                                <input  type=\"text\" name=\"genre\" placeholder=\"Leave blank if you want to delete this genre\" value=\"{$row["genre"]}\">
                                 <input  type=\"hidden\" name=\"genre_o\" value=\"{$row["genre"]}\">
                             </td>
                         </tr>";
@@ -123,8 +127,8 @@
                             <th colspan=\"2\"><input type=\"submit\" value=\"更新\"/></th>  
                         </tr>";
                 } else {
-                    echo "<h2 align='center' style=\"color:#5b554e\">載入失敗!!</h2>";
-                    echo "<li><a href=\"update.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
+                    echo "<h2 align='center' style=\"color:#ffffff\">載入失敗!!</h2>";
+                    echo "<li><a href=\"update.php\"><font color='#ffffff'>回到上一頁</font></a></li>";
                 }
             ?>
         </table>

@@ -1,10 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-$servername = "140.122.184.129:3310";
+/*$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";
+$dbname = "team4";*/
+$servername = "localhost";
+$username = "root";
+$password = "anny920504";
+$dbname = "test";
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -57,22 +61,33 @@ $result = $conn->query($update_sql);
 $check_sql = "select * from book_details
                 where ISBN='{$ISBN}' and title='{$title}' and author='{$author}' and publisher='{$publisher}' and publish_date='{$publish_date}' and version={$version} and page_num={$page_num} and language='{$language}';";
 $result1 = $conn->query($check_sql);
-$update_sql = "update book
-                set ISBN='{$ISBN}', book_id={$book_id}
-                where ISBN='{$ISBN_o}' and book_id={$book_id_o};";
-$result = $conn->query($update_sql);
-$check_sql = "select * from book
-                where ISBN='{$ISBN}' and book_id={$book_id};";
-$result2 = $conn->query($check_sql);
-$update_sql = "update book_genre
-                set ISBN='{$ISBN}', genre='{$genre}'
-                where ISBN='{$ISBN_o}' and genre='{$genre_o}';";
-$result = $conn->query($update_sql);
-$check_sql = "select * from book_genre
-                where ISBN='{$ISBN}' and genre='{$genre}';";
-$result3 = $conn->query($check_sql);
 
-if ($result1->num_rows == 0 || $result2->num_rows == 0 || $result3->num_rows == 0) {
+$valid = 1;
+if ($genre == "") {
+    $update_sql = "delete from book_genre
+                    where ISBN='{$ISBN}' and genre='{$genre_o}';";
+    $result = $conn->query($update_sql);
+    $check_sql = "select * from book_genre
+                    where ISBN='{$ISBN}' and genre='{$genre_o}';";
+    $result3 = $conn->query($check_sql);
+    if ( $result3->num_rows > 0) {
+        $valid = 0;
+        echo "genre = blank<br/>";
+    } 
+} else {
+    $update_sql = "update book_genre
+                    set ISBN='{$ISBN}', genre='{$genre}'
+                    where ISBN='{$ISBN}' and genre='{$genre_o}';";
+    $result = $conn->query($update_sql);
+    $check_sql = "select * from book_genre
+                    where ISBN='{$ISBN}' and genre='{$genre}';";
+    $result3 = $conn->query($check_sql);
+    if ( $result3->num_rows == 0) {
+        $valid = 0;
+    } 
+}
+
+if ($result1->num_rows == 0 || $valid == 0) {
     echo "<h2 align='center'><font color='#5b554e'>修改失敗!!</font></h2>";
     echo "<li><a href=\"updateBook_details.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
 } else {

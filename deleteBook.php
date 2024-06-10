@@ -23,15 +23,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$user_id = $_GET['user_id'];
-$dvd_id = $_GET['dvd_id'];
-$estimation_date = $_GET['estimation_date'];
+$book_id = $_GET['book_id'];
+$ISBN = $_GET['ISBN'];
 
-$update_sql = "delete from dvd_reservation
-                where user_id={$user_id} and dvd_id={$dvd_id} and estimation_date='{$estimation_date}';";
+$update_sql = "delete from book
+                where ISBN='{$ISBN}' and book_id={$book_id};";
 $result = $conn->query($update_sql);
-$check_sql = "select * from dvd_reservation
-                where user_id={$user_id} and dvd_id={$dvd_id} and estimation_date='{$estimation_date}';";
+$check_sql = "select * from book
+                where ISBN='{$ISBN}' and book_id={$book_id};";
 $result = $conn->query($check_sql);
 
 if ($result->num_rows > 0) {

@@ -49,14 +49,18 @@
             <tr>
                 <th>ISBN</th><th>Book ID</th><th>書名</th><th>作者</th>
                 <th>出版社</th><th>出版日期</th><th>版本</th>
-                <th>頁數</th><th>語言</th><th>類型</th>
+                <th>頁數</th><th>語言</th>
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -72,7 +76,7 @@
                 } 
 
                 $search_sql = "select * 
-                                from book_details natural join book natural join book_genre
+                                from book_details natural join book
                                 order by ISBN asc, book_id asc;";
                 $result = $conn->query($search_sql);
                 //echo $search_sql . "<br/>";
@@ -111,10 +115,6 @@
                                         {$row["language"]}
                                     </th>
                                     <th>
-                                        {$row["genre"]}
-                                        <input type=\"hidden\" id=\"genre\" name=\"genre\" value=\"{$row["genre"]}\">
-                                    </th>
-                                    <th>
                                         <button type=\"submit\" onclick=\"solve()\">
                                             刪除
                                         </button>
@@ -132,14 +132,18 @@
             <tr>
                 <th>DVD ID</th><th>名稱</th><th>演員</th>
                 <th>導演</th><th>時長</th><th>上映日期</th>
-                <th>發行公司</th><th>語言</th><th>類型</th>
+                <th>發行公司</th><th>語言</th>
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -155,7 +159,7 @@
                 } 
 
                 $search_sql = "select * 
-                                from dvd_details natural join dvd natural join dvd_genre
+                                from dvd_details natural join dvd
                                 order by title asc, dvd_id asc;";
                 $result = $conn->query($search_sql);
 
@@ -192,10 +196,6 @@
                                         {$row["language"]}
                                     </th>
                                     <th>
-                                        {$row["genre"]}
-                                        <input type=\"hidden\" id=\"genre\" name=\"genre\" value=\"{$row["genre"]}\">
-                                    </th>
-                                    <th>
                                         <button type=\"submit\" onclick=\"solve()\">
                                             刪除
                                         </button>
@@ -216,10 +216,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -283,10 +287,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -349,10 +357,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -411,10 +423,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -473,10 +489,14 @@
             </tr>
             <?php
                 // ******** update your personal settings ******** 
-                $servername = "140.122.184.129:3310";
+                /*$servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
-                $dbname = "team4";
+                $dbname = "team4";*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "anny920504";
+                $dbname = "test";
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);

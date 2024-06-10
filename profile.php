@@ -32,10 +32,14 @@
                     $id = $_SESSION["ID"];
                     //echo "id={$id}";
                     // ******** update your personal settings ******** 
-                    $servername = "140.122.184.129:3310";
+                    /*$servername = "140.122.184.129:3310";
                     $username = "team4";
                     $password = "4pI@3uqfCfzW09Te";
-                    $dbname = "team4";
+                    $dbname = "team4";*/
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "anny920504";
+                    $dbname = "test";
 
                     // Connecting to and selecting a MySQL database
                     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -51,7 +55,7 @@
                     } 
 
                     $profile_sql = "select * from user
-                                        where user_id = '{$id}';";
+                                        where user_id = {$id};";
                     $result = $conn->query($profile_sql);
                     
                     if ($result->num_rows > 0) {
@@ -71,7 +75,7 @@
                 ?>
             </div>
             <tr style="height:80px"><th colspan="3" align="center">
-                <form action="info_modify.php" method="get">
+                <form action="profile_modify.php" method="get">
                     <button style="height:50px;width:100px;font-size:18px;background-color: #5f3f1c;color: #ffffff;border-color: #5f3f1c;" type="submit" onclick="solve()">修改</button>
                 </form>
             </th><tr>

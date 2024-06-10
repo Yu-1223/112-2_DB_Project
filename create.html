@@ -12,8 +12,8 @@
             <img src="lion.png" alt="Icon" class="navbar-icon">獅大圖書館管理系統</div>
         <ul class="nav-list">
             <li><a href="modify.html">首頁</a></li>
-            <li><a href="delete.html">刪除資料</a></li>
-            <li><a href="update.html">更新資料</a></li>
+            <li><a href="delete.php">刪除資料</a></li>
+            <li><a href="update.php">更新資料</a></li>
             <li><a href="create.html">新增資料</a></li>
         </ul>
     </nav>
@@ -26,11 +26,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="book_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="book_id" placeholder="若多於一項則以 ',' 分隔"  /></td>
             </tr>
             <tr>
                 <th>ISBN</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="ISBN" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="ISBN" required/></td>
             </tr>
             <tr>
                 <th>書名</th>
@@ -42,11 +42,11 @@
             </tr>
             <tr>
                 <th>出版社</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="author"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="publisher"></td>
             </tr>
             <tr>
                 <th>出版日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="publish_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="publish_date" placeholder="YYYYMMDD"></td>
             </tr>
             <tr>
                 <th>類型</th>
@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <th>版本</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="version"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="version" placeholder="若多於一項則以 ',' 分隔"></td>
             </tr>
             <tr>
                 <th>頁數</th>
@@ -80,11 +80,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id" placeholder="若多於一項則以 ',' 分隔"  /></td>
             </tr>
             <tr>
                 <th>名稱</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="title" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="title" required /></td>
             </tr>
             <tr>
                 <th>演員</th>
@@ -100,15 +100,15 @@
             </tr>
             <tr>
                 <th>上映日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="release_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="release_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
                 <th>類型</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="genre"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="genre" placeholder="若多於一項則以 ',' 分隔"></td>
             </tr>
             <tr>
                 <th>發行公司</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="publish_company"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="publish_company" required></td>
             </tr>
             <tr>
                 <th>語言</th>
@@ -129,11 +129,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>使用者ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="user_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="user_id" required  /></td>
             </tr>
             <tr>
                 <th>書籍ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="book_id	" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="book_id" required /></td>
             </tr>
             <tr>
                 <th>館員ID</th>
@@ -141,11 +141,11 @@
             </tr>
             <tr>
                 <th>借閱日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
                 <th>還書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl "></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -162,11 +162,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>使用者ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="user_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="user_id" required  /></td>
             </tr>
             <tr>
                 <th>DVD ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id	" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id" required /></td>
             </tr>
             <tr>
                 <th>館員ID</th>
@@ -174,11 +174,11 @@
             </tr>
             <tr>
                 <th>借閱日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
                 <th>還書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl "></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -191,15 +191,15 @@
         <div style="display: flex; align-items: center; margin: 0; justify-content: center;">
             <h2>新增書籍預約紀錄</h2>
         </div>
-        <form action="createBookes.php" method="post">	
+        <form action="createBookRes.php" method="post">	
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>使用者ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="user_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="user_id" required  /></td>
             </tr>
             <tr>
                 <th>書籍 ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="book_id	" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="book_id" required /></td>
             </tr>
             <tr>
                 <th>序號</th>
@@ -207,7 +207,7 @@
             </tr>
             <tr>
                 <th>取書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -224,11 +224,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>使用者ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="user_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="user_id" required  /></td>
             </tr>
             <tr>
                 <th>DVD ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id	" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="dvd_id" required /></td>
             </tr>
             <tr>
                 <th>序號</th>
@@ -236,7 +236,7 @@
             </tr>
             <tr>
                 <th>取件日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -253,11 +253,11 @@
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>使用者ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="user_id"  /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="user_id" required  /></td>
             </tr>
             <tr>
                 <th>場地 ID</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="room_id	" /></td>
+                <td bgcolor="#FFFFFF"><input type="text" name="room_id" required /></td>
             </tr>
             <tr>
                 <th>負責館員ID</th>
@@ -269,7 +269,7 @@
             </tr>
             <tr>
                 <th>活動日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="activity_date"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="activity_date" placeholder="YYYYMMDD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  

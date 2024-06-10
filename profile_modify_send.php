@@ -2,10 +2,14 @@
 session_start();
 $id = $_SESSION["ID"];
 // ******** update your personal settings ******** 
-$servername = "140.122.184.129:3310";
+/*$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";
+$dbname = "team4";*/
+$servername = "localhost";
+$username = "root";
+$password = "anny920504";
+$dbname = "test";
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -33,20 +37,13 @@ $phone_num = $_POST['phone_num'];
 $birthday = $_POST['birthday'];
 $birthday = str_replace("-", "", $birthday);
 
-echo "full_name = {$full_name}<br/>";
-echo "username = {$username}<br/>";
-echo "password = {$password}<br/>";
-echo "email = {$email}<br/>";
-echo "phone_num = {$phone_num}<br/>";
-echo "birthday = {$birthday}<br/>";
-
 $info_sql = "update user
                 set full_name='{$full_name}', username='{$username}', ";
 if ($password != "********") {
     $info_sql = $info_sql . "password='{$password}', ";
 }
 $info_sql = $info_sql . "email='{$email}', phone_num='{$phone_num}', birthday='{$birthday}'
-                where user_id = '{$id}';";
+                            where user_id = {$id};";
 $result = $conn->query($info_sql);
 $info_sql = "select * from user
                 where full_name='{$full_name}' and username='{$username}' and email='{$email}' and phone_num='{$phone_num}' and birthday='{$birthday}';";

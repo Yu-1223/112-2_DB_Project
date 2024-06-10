@@ -19,7 +19,7 @@
     </nav>
 
     <div  class="profile">
-        <form action="send_new_info.php" method="post">
+        <form action="profile_modify_send.php" method="post">
             <div class="profile-content">
                 <table style='font-family:"Courier New", Courier, monospace; font-size:20px;text-align: left; width:100%' align=\"left\">
                 <tr style="height:80px; font-size:30px">
@@ -29,10 +29,14 @@
                     session_start();
                     $id = $_SESSION["ID"];
                     // ******** update your personal settings ******** 
-                    $servername = "140.122.184.129:3310";
+                    /*$servername = "140.122.184.129:3310";
                     $username = "team4";
                     $password = "4pI@3uqfCfzW09Te";
-                    $dbname = "team4";
+                    $dbname = "team4";*/
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "anny920504";
+                    $dbname = "test";
 
                     // Connecting to and selecting a MySQL database
                     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -48,7 +52,7 @@
                     } 
 
                     $profile_sql = "select * from user
-                                        where user_id = '{$id}';";
+                                        where user_id = {$id};";
                     $result = $conn->query($profile_sql);
                     
                     if ($result->num_rows > 0) {

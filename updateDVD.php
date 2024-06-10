@@ -1,10 +1,14 @@
 <?php
 
 // ******** update your personal settings ******** 
-$servername = "140.122.184.129:3310";
+/*$servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
-$dbname = "team4";
+$dbname = "team4";*/
+$servername = "localhost";
+$username = "root";
+$password = "anny920504";
+$dbname = "test";
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -53,22 +57,33 @@ $result = $conn->query($update_sql);
 $check_sql = "select * from dvd_details
                 where title='{$title}' and actor='{$actor}' and director='{$director}' and release_date='{$release_date}' and duration={$duration} and publish_company='{$publish_company}' and language='{$language}';";
 $result1 = $conn->query($check_sql);
-$update_sql = "update dvd
-                set title='{$title}', release_date='{$release_date}', publish_company='{$publish_company}', dvd_id={$dvd_id}
-                where title='{$title_o}' and release_date='{$release_date_o}' and publish_company='{$publish_company_o}' and dvd_id={$dvd_id_o};";
-$result = $conn->query($update_sql);
-$check_sql = "select * from dvd
-                where title='{$title}' and release_date='{$release_date}' and publish_company='{$publish_company}' and dvd_id={$dvd_id};";
-$result2 = $conn->query($check_sql);
-$update_sql = "update dvd_genre
-                set title='{$title}', release_date='{$release_date}', publish_company='{$publish_company}', genre='{$genre}'
-                where title='{$title_o}' and release_date='{$release_date_o}' and publish_company='{$publish_company_o}' and genre='{$genre_o}';";
-$result = $conn->query($update_sql);
-$check_sql = "select * from dvd_genre
-                where title='{$title}' and release_date='{$release_date}' and publish_company='{$publish_company}' and genre='{$genre}';";
-$result3 = $conn->query($check_sql);
 
-if ($result1->num_rows == 0 || $result2->num_rows == 0 || $result3->num_rows == 0) {
+$valid = 1;
+if ($genre == "") {
+    $update_sql = "delete from dvd_genre
+                    where title='{$title_o}' and release_date='{$release_date_o}' and publish_company='{$publish_company_o}' and genre='{$genre_o}';";
+    $result = $conn->query($update_sql);
+    $check_sql = "select * from dvd_genre
+                    where title='{$title}' and release_date='{$release_date}' and publish_company='{$publish_company}' and genre='{$genre}';";
+    $result3 = $conn->query($check_sql);
+    if ( $result3->num_rows > 0) {
+        $valid = 0;
+    } 
+} else {
+    $update_sql = "update dvd_genre
+                    set title='{$title}', release_date='{$release_date}', publish_company='{$publish_company}', genre='{$genre}'
+                    where title='{$title_o}' and release_date='{$release_date_o}' and publish_company='{$publish_company_o}' and genre='{$genre_o}';";
+    $result = $conn->query($update_sql);
+    $check_sql = "select * from dvd_genre
+                    where title='{$title}' and release_date='{$release_date}' and publish_company='{$publish_company}' and genre='{$genre}';";
+    $result3 = $conn->query($check_sql);
+    if ( $result3->num_rows == 0) {
+        $valid = 0;
+    } 
+}
+
+
+if ($result1->num_rows == 0 || $valid == 0) {
     echo "<h2 align='center'><font color='#5b554e'>修改失敗!!</font></h2>";
     echo "<li><a href=\"updateDVD_details.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
 } else {
