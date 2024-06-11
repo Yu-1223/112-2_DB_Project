@@ -28,18 +28,24 @@ $room_id_o = $_POST['room_id_o'];
 $staff_id_o = $_POST['staff_id_o'];
 $activity_name_o = $_POST['activity_name_o'];
 $activity_date_o = $_POST['activity_date_o'];
+$activity_date_o = new DateTime("{$activity_date_o}");
+$activity_date_o = $activity_date_o->format('Y-m-d');
 $user_id = $_POST['user_id'];
 $room_id = $_POST['room_id'];
-$staff_id = $_POST['staff_id'];
 $activity_name = $_POST['activity_name'];
+if ($activity_name == "") {
+    $activity_name = "-";
+}
 $activity_date = $_POST['activity_date'];
+$activity_date = new DateTime("{$activity_date}");
+$activity_date = $activity_date->format('Y-m-d');
 
 $update_sql = "update activity
-                set user_id={$user_id}, room_id={$room_id}, staff_id={$staff_id}, activity_name='{$activity_name}', activity_date='{$activity_date}'
+                set user_id={$user_id}, room_id={$room_id}, activity_name='{$activity_name}', activity_date='{$activity_date}'
                 where user_id={$user_id_o} and room_id={$room_id_o} and activity_date='{$activity_date_o}';";
 $result = $conn->query($update_sql);
 $check_sql = "select * from activity
-                where user_id={$user_id} and room_id={$room_id} and staff_id={$staff_id} and activity_name='{$activity_name}' and activity_date='{$activity_date}';";
+                where user_id={$user_id} and room_id={$room_id} and activity_name='{$activity_name}' and activity_date='{$activity_date}';";
 $result = $conn->query($check_sql);
 
 if ($result->num_rows == 0) {
