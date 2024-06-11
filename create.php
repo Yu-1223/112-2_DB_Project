@@ -1,13 +1,3 @@
-<?php
-include 'session.php';
-session_start();
-// Check if the user is logged in
-if (!isset($_SESSION['ID'])) {
-    header("Location: login.html");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +7,15 @@ if (!isset($_SESSION['ID'])) {
     <link rel="stylesheet" href="modify.css">
 </head>
 <body>
+    <?php
+        include 'session.php';
+        session_start();
+        // Check if the user is logged in
+        if (!isset($_SESSION['ID'])) {
+            header("Location: login.html");
+            exit();
+        }
+    ?>
     <nav class="navbar">
         <div class="navbar-title">
             <img src="lion.png" alt="Icon" class="navbar-icon">獅大圖書館管理系統</div>
@@ -56,7 +55,7 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>出版日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="publish_date" placeholder="YYYYMMDD"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="publish_date" placeholder="YYYY-MM-DD"></td>
             </tr>
             <tr>
                 <th>類型</th>
@@ -110,7 +109,7 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>上映日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="release_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="release_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
                 <th>類型</th>
@@ -151,11 +150,11 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>借閱日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
                 <th>還書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -184,11 +183,11 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>借閱日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="borrow_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
                 <th>還書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="return_ddl" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -217,7 +216,7 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>取書日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -246,7 +245,7 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>取件日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="estimation_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
@@ -279,7 +278,7 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>活動日期</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="activity_date" placeholder="YYYYMMDD" required></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="activity_date" placeholder="YYYY-MM-DD" required></td>
             </tr>
             <tr>
             <th colspan="2"><input type="submit" value="新增"/></th>  
