@@ -1,13 +1,11 @@
 <?php
 include 'session.php';
-
+session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['ID'])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit();
 }
-
-// Rest of your dashboard code
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +39,7 @@ if (!isset($_SESSION['ID'])) {
         <ul class="nav-list">
             <li><a href="index.php">首頁</a></li>
             <li><a href="search.php">館藏搜尋</a></li>
-            <li><a href="activity.html">活動報名</a></li>
+            <li><a href="activity.php">活動報名</a></li>
             <li><a href="profile.php">個人資料</a></li>
         </ul>
     </nav>
