@@ -19,9 +19,22 @@
         </ul>
     </nav>
 
-    <div class="content">
-        <h2>Welcome to the Home Page</h2>
-        <p>This is the main content of the home page.</p>
+    <div class="home-content">
+        <div class="home-image">
+            <img src="home.jpg" alt="Image"  width="auto" height="480">
+        </div>       
+        <div class="home-text">
+            <h1>歡迎使用獅大圖書館網站!</h1>
+            <p>館藏搜尋:</P>
+            <p class="detail">- 點擊館藏搜尋可以依據類別搜尋書籍和DVD</P>
+            <p class="detail">- 點擊預約即可預約書籍或DVD</P>
+            <p>活動報名:</P>
+            <p class="detail">- 點擊活動報名可預覽目前可報名之活動</P>
+            <p class="detail">- 點擊活動詳情後輸入活動資料即可報名活動</P>
+            <p>個人資料:</P>
+            <p class="detail">- 點擊個人資料可檢視個資或修改個資</P>
+            <p class="detail">- 也可預覽已報名之活動和已預約之書籍及DVD</P>
+        </div> 
         <?php
             session_start();
             $user_id = $_SESSION["ID"];
