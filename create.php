@@ -1,3 +1,12 @@
+<?php
+include 'session.php';
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['ID'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
