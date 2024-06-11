@@ -26,10 +26,10 @@
         <div class="navbar-title">
             <img src="lion.png" alt="Icon" class="navbar-icon">獅大圖書館管理系統</div>
         <ul class="nav-list">
-            <li><a href="modify.html">首頁</a></li>
+            <li><a href="modify.php">首頁</a></li>
             <li><a href="delete.php">刪除資料</a></li>
             <li><a href="update.php">更新資料</a></li>
-            <li><a href="create.html">新增資料</a></li>
+            <li><a href="create.php">新增資料</a></li>
         </ul>
     </nav>
 

@@ -1,3 +1,13 @@
+<?php
+include 'session.php';
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['ID'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +39,7 @@
         <ul class="nav-list">
             <li><a href="index.php">首頁</a></li>
             <li><a href="search.php">館藏搜尋</a></li>
-            <li><a href="activity.html">活動報名</a></li>
+            <li><a href="activity.php">活動報名</a></li>
             <li><a href="profile.php">個人資料</a></li>
         </ul>
     </nav>
@@ -252,6 +262,9 @@
                 </table>
             </div>
         </div>
+        <form action="logout.php" method="post">
+            <button class="logout-button" type="submit">Logout</button>
+        </form>
     </div>
 </body>
 </html>

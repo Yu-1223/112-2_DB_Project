@@ -42,7 +42,7 @@ if (isset($_POST['first']) && isset($_POST['password']) && isset($_POST['option'
 		if ($option == "staff") {
 			session_start();
 			$_SESSION["ID"] = $row["staff_id"];
-			header("Location: modify.html");
+			header("Location: modify.php");
 		} else {
 			session_start();
 			$_SESSION["ID"] = $row["user_id"];
@@ -58,4 +58,3 @@ if (isset($_POST['first']) && isset($_POST['password']) && isset($_POST['option'
 }
 				
 ?>
-
