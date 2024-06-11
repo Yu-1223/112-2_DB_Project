@@ -1,3 +1,15 @@
+<?php
+include 'session.php';
+
+// Check if the user is logged in
+if (!isset($_SESSION['ID'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Rest of your dashboard code
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -252,6 +264,9 @@
                 </table>
             </div>
         </div>
+        <form action="logout.php" method="post">
+            <button class="logout-button" type="submit">Logout</button>
+        </form>
     </div>
 </body>
 </html>
