@@ -21,16 +21,14 @@
                 $user_id = $_GET['user_id'];
                 $book_id = $_GET['book_id'];
                 $estimation_date = $_GET['estimation_date'];
+                $estimation_date = new DateTime("{$estimation_date}");
+                $estimation_date = $estimation_date->format('Y-m-d');
 
                 // ******** update your personal settings ******** 
                 $servername = "140.122.184.129:3310";
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -85,8 +83,9 @@
                             <th colspan=\"2\"><input type=\"submit\" value=\"更新\"/></th>  
                         </tr>";
                 } else {
-                    echo "<h2 align='center' style=\"color:#ffffff\">載入失敗!!</h2>";
-                    echo "<li><a href=\"update.php\"><font color='#ffffff'>回到上一頁</font></a></li>";
+                    $message = "資料載入失敗";
+                    $location = "update.php?msg=" . urlencode($message);
+                    header("Location: " . $location);
                 }
             ?>
         </table>

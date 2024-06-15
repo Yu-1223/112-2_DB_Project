@@ -5,10 +5,6 @@ $servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
 $dbname = "team4";
-/*$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -31,9 +27,23 @@ if (isset($_POST['ISBN'])) {
     $cutid = explode(",", $book_id);
 	$ISBN = $_POST['ISBN'];
 	$title = $_POST['title'];
+    if ($title == "") {
+        $title = "-";
+    }
 	$author = $_POST['author'];
+    if ($author == "") {
+        $author = "-";
+    }
 	$publisher = $_POST['publisher'];
+    if ($publisher == "") {
+        $publisher = "-";
+    }
 	$publish_date = $_POST['publish_date'];
+    if ($publish_date == "") {
+        $publish_date = "000000";
+    }
+    $publish_date = new DateTime("{$publish_date}");
+    $publish_date = $publish_date->format('Y-m-d');
 	$genre = $_POST['genre'];
     $cutgen = explode(",", $genre);   
     $nums = count($cutgen);
@@ -46,6 +56,9 @@ if (isset($_POST['ISBN'])) {
         $page_num = 0;
     }
 	$language = $_POST['language'];
+    if ($language == "") {
+        $language = "-";
+    }
 
     $nums = count($cutid);
     $max = 0;
@@ -61,10 +74,9 @@ if (isset($_POST['ISBN'])) {
                                 from book;";
                 $result = $conn->query($check_sql);
                 if ($result->num_rows == 0) {
-                    echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
-                    echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
-                    $valid = 0;
-                    break;
+                    $message = "新增失敗";
+                    $location = "create.php?msg=" . urlencode($message);
+                    header("Location: " . $location);
                 } else {
                     $row = mysqli_fetch_assoc($result);
                     $max = $row["max"] + 1;
@@ -75,76 +87,66 @@ if (isset($_POST['ISBN'])) {
         }
     }
     
-    if ($valid == 1)
-    {
+    $check_sql = "select * from book_details
+                    where ISBN = '{$ISBN}';";
+    $result = $conn->query($check_sql);
+    if ($result->num_rows == 0) {
+        $create_sql = "insert into book_details
+                        values ('{$ISBN}','{$title}','{$author}','{$publisher}','{$publish_date}',{$version},{$page_num},'{$language}',0,0);";
+        $result = $conn->query($create_sql);
         $check_sql = "select * from book_details
-                        where ISBN = '{$ISBN}';";
+                        where ISBN='{$ISBN}' and title='{$title}' and author='{$author}' and publisher='{$publisher}' and publish_date='{$publish_date}' 
+                        and version={$version} and page_num={$page_num} and language='{$language}' and tot_qty=0 and avail_qty=0;";
         $result = $conn->query($check_sql);
         if ($result->num_rows == 0) {
-            $create_sql = "insert into book_details
-                            values ('{$ISBN}','{$title}','{$author}','{$publisher}','{$publish_date}',{$version},{$page_num},'{$language}',0,0);";
-            $result = $conn->query($create_sql);
-            $check_sql = "select * from book_details
-                            where ISBN='{$ISBN}' and title='{$title}' and author='{$author}' and publisher='{$publisher}' and publish_date='{$publish_date}' 
-                            and version={$version} and page_num={$page_num} and language='{$language}' and tot_qty=0 and avail_qty=0;";
-            $result = $conn->query($check_sql);
-            if ($result->num_rows == 0) {
-                echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
-                echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
-                $valid = 0;
-            }
+            $message = "新增失敗";
+            $location = "create.php?msg=" . urlencode($message);
+            header("Location: " . $location);
         }
     }
     
-    if ($valid == 1) {
-	    $nums = count($cutid);
-        for($x=0; $x < $nums; $x++){
-            $create_sql = "insert into book
-                            values ({$cutid[$x]},'{$ISBN}');";
-            $result = $conn->query($create_sql);
-            $check_sql = "select * from book
-                            where book_id={$cutid[$x]} and ISBN='{$ISBN}';";
-            $result = $conn->query($check_sql);
-            if ($result->num_rows == 0) {
-                echo "<h2 align='center'><font color='#a66d2f'>新增失敗!!</font><br/></h2>";
-                echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
-                $valid = 0;
-                break;
-            }
+    $nums = count($cutid);
+    for($x=0; $x < $nums; $x++){
+        $create_sql = "insert into book
+                        values ({$cutid[$x]},'{$ISBN}');";
+        $result = $conn->query($create_sql);
+        $check_sql = "select * from book
+                        where book_id={$cutid[$x]} and ISBN='{$ISBN}';";
+        $result = $conn->query($check_sql);
+        if ($result->num_rows == 0) {
+            $message = "新增失敗";
+            $location = "create.php?msg=" . urlencode($message);
+            header("Location: " . $location);
         }
     }
 
-    if ($valid == 1) {
-        $nums=count($cutgen);
-        for($x=0; $x < $nums; $x++){
+    $nums=count($cutgen);
+    for($x=0; $x < $nums; $x++){
+        $check_sql = "select * from book_genre
+                        where ISBN='{$ISBN}' and genre='{$cutgen[$x]}';";
+        $result = $conn->query($check_sql);
+        if ($result->num_rows == 0) {
+            $create_sql = "insert into book_genre
+                            values ('{$ISBN}','{$cutgen[$x]}');";
+            $result = $conn->query($create_sql);
             $check_sql = "select * from book_genre
                             where ISBN='{$ISBN}' and genre='{$cutgen[$x]}';";
             $result = $conn->query($check_sql);
             if ($result->num_rows == 0) {
-                $create_sql = "insert into book_genre
-                                values ('{$ISBN}','{$cutgen[$x]}');";
-                $result = $conn->query($create_sql);
-                $check_sql = "select * from book_genre
-                                where ISBN='{$ISBN}' and genre='{$cutgen[$x]}';";
-                $result = $conn->query($check_sql);
-                if ($result->num_rows == 0) {
-                    echo "<h2 align='center'><font color='#5b554e'>新增失敗!!</font><br/></h2>";
-                    echo "<li><a href=\"create.html\"><font color='#5b554e'>回到上一頁</font></a></li>";
-                    $valid = 0;
-                    break;
-                }
+                $message = "新增失敗";
+                $location = "create.php?msg=" . urlencode($message);
+                header("Location: " . $location);
             }
         }
     }
 
-    if ($valid == 1)
-    {
-        echo "<h2 align='center'><font color='#5b554e'>新增成功!!</font><br/></h2>";
-        echo "<li><a href=\"create.html\"><font color='#5b554e'>回到上一頁</font></a></li>";
-    }
-
+    $message = "新增成功";
+	$location = "create.php?msg=" . urlencode($message);
+	header("Location: " . $location);
 }else{
-	echo "<h2 align='center'><font color='#5b554e'>資料不完全</font><br/></h2>";
+	$message = "新增失敗";
+    $location = "create.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 }
 				
 ?>

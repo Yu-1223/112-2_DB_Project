@@ -20,6 +20,7 @@
             document.getElementById(formId).style.display = 'block';
         }
     </script>
+    <script type="text/javascript" src="alert.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -57,10 +58,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -139,10 +136,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -219,10 +212,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -290,10 +279,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -360,10 +345,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -426,10 +407,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -492,10 +469,6 @@
                 $username = "team4";
                 $password = "4pI@3uqfCfzW09Te";
                 $dbname = "team4";
-                /*$servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "";*/
         
                 // Connecting to and selecting a MySQL database
                 $conn = mysqli_connect($servername, $username, $password, $dbname);

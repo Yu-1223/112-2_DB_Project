@@ -6,10 +6,6 @@ $servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
 $dbname = "team4";
-/*$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -35,6 +31,32 @@ if ($_POST['password'] != "********") {
 $email = $_POST['email'];
 $phone_num = $_POST['phone_num'];
 $birthday = $_POST['birthday'];
+$cutbirth = explode("-", $birthday);
+if (intval($cutbirth[0])<1000 or intval($cutbirth[0])>2024 or intval($cutbirth[1])<1 or intval($cutbirth[1])>12 or intval($cutbirth[2])<1) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+} else if (intval($cutbirth[1])>7 and intval($cutbirth[1])%2==0 and intval($cutbirth[2])>31) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+} else if (intval($cutbirth[1])>7 and intval($cutbirth[1])%2!=0 and intval($cutbirth[2])>30) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+} else if (intval($cutbirth[1])%2!=0 and intval($cutbirth[2])>31) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+} else if (intval($cutbirth[1])==2 and intval($cutbirth[2])>29 and (intval($cutbirth[0])%400==0 or (intval($cutbirth[0])%4==0 and intval($cutbirth[0])%100!=0))) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+} else if (intval($cutbirth[2])>28) {
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
+}
 $birthday = str_replace("-", "", $birthday);
 
 $info_sql = "update user
@@ -53,8 +75,9 @@ if ($result->num_rows > 0) {
     header("Location: profile.php");
     exit;
 } else {
-    echo "<h2 align='center'><font color='#a66d2f'>修改失敗!!</font><br/></h2>";
-    echo "<h2 align='center'><font color='#a66d2f'>請回到上一頁</font><br/></h2>";
+    $message = "修改失敗";
+    $location = "profile_modify.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 }
 				
 ?>

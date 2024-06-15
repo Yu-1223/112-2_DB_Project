@@ -15,6 +15,7 @@ if (!isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="alert.js"></script>
     <style>
         .container{
             display: flex;
@@ -59,11 +60,7 @@ if (!isset($_SESSION['ID'])) {
                         $username = "team4";
                         $password = "4pI@3uqfCfzW09Te";
                         $dbname = "team4";
-                        /*$servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "";*/
-
+                        
                         // Connecting to and selecting a MySQL database
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -88,9 +85,15 @@ if (!isset($_SESSION['ID'])) {
                             echo "<tr style=\"height:45px\"><th>密碼: </th><th colspan=\"2\">********</th></tr>";
                             echo "<tr style=\"height:45px\"><th>Email: </th><th colspan=\"2\">{$row["email"]}</th></tr>";
                             echo "<tr style=\"height:45px\"><th>手機: </th><th colspan=\"2\">{$row["phone_num"]}</th></tr>";
-                            echo "<tr style=\"height:45px\"><th>生日: </th><th colspan=\"2\">{$row["birthday"]}</th></tr>";
+                            if ($row["birthday"] != "0000-00-00") {
+                                echo "<tr style=\"height:45px\"><th>生日: </th><th colspan=\"2\">{$row["birthday"]}</th></tr>";
+                            } else {
+                                echo "<tr style=\"height:45px\"><th>生日: </th><th colspan=\"2\">-</th></tr>";
+                            }
                         } else {
-                            echo "<h2 align='center'>載入失敗!!</h2>";
+                            $message = "個人資料載入失敗";
+                            $location = "index.php?msg=" . urlencode($message);
+                            header("Location: " . $location);
                         }
                     ?>
                     <div style="height:80px"><th colspan="3" align="center">
@@ -233,7 +236,7 @@ if (!isset($_SESSION['ID'])) {
                 </table>
                 <table style='font-family:"Courier New", Courier, monospace; font-size:20px;text-align: left; width:100%' align=\"left\">
                     <tr style="height:80px; font-size:30px">
-                        <th colspan="3" align="center">DVD Borrow History</th>
+                        <th colspan="3" align="center">DVD Reservation History</th>
                     <tr>
                     <?php
                         $dvdSearch_sql = "SELECT dvd_details.title, dvd_reservation.estimation_date from dvd_reservation NATURAL JOIN dvd NATURAL JOIN dvd_details where user_id = {$id};";
@@ -248,9 +251,7 @@ if (!isset($_SESSION['ID'])) {
                             while ($row = $dvdResult->fetch_assoc()) {
                                 echo '<tr>';
                                 echo '<td>' . $row['title'] . '</td>';
-                                echo '<td>' . $row['borrow_date'] . '</td>';
-                                echo '<td>' . $row['return_ddl'] . '</td>';
-                                echo '<td>' . ($row['status'] == 1 ? 'returned' : 'not returned') . '</td>';
+                                echo '<td>' . $row['estimation_date'] . '</td>';
                                 echo '</tr>';
                             }
                         }

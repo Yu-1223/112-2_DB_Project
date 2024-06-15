@@ -6,6 +6,7 @@
     <title>Search</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pop.css">
+    <script type="text/javascript" src="alert.js"></script>
 </head>
 <body>
     <?php
@@ -72,10 +73,6 @@
         $username = "team4";
         $password = "4pI@3uqfCfzW09Te";
         $dbname = "team4";
-        /*$servername = "localhost";
-        $username = "root";
-        $password = "anny920504";
-        $dbname = "test";*/
 
         // Connecting to and selecting a MySQL database
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -118,38 +115,20 @@
                                         {$row["ISBN"]}
                                         <input type=\"hidden\" id=\"ISBN\" name=\"ISBN\" value=\"{$row["ISBN"]}\">
                                     </th>
-                                    <th>
-                                        {$row["title"]}
-                                    </th>
-                                    <th>
-                                        {$row["author"]}
-                                    </th>
-                                    <th>
-                                        {$row["publisher"]}
-                                    </th>
-                                    <th>
-                                        {$row["publish_date"]}
-                                    </th>
-                                    <th>
-                                        {$row["version"]}
-                                    </th>
-                                    <th>
-                                        {$row["page_num"]}
-                                    </th>
-                                    <th>
-                                        {$row["language"]}
-                                    </th>
-                                    <th>
-                                        {$row["tot_qty"]}
-                                    </th>
-                                    <th>
-                                        {$row["avail_qty"]}
-                                    </th>
-                                    <th>
-                                        <button type=\"submit\" onclick=\"solve()\">
-                                            預約
-                                        </button>
-                                    </th>
+                                    <th>{$row["title"]}</th>
+                                    <th>{$row["author"]}</th>
+                                    <th>{$row["publisher"]}</th>
+                                    <th>{$row["publish_date"]}</th>
+                                    <th>{$row["version"]}</th>
+                                    <th>{$row["page_num"]}</th>
+                                    <th>{$row["language"]}</th>
+                                    <th>{$row["tot_qty"]}</th>
+                                    <th>{$row["avail_qty"]}</th>
+                                    <th>";
+                        if ($row["tot_qty"] > 0) {
+                            echo "<button type=\"submit\" onclick=\"solve()\">預約</button>";
+                        }
+                        echo "      </th>
                                 </tr>
                             </form>";
                     }
@@ -173,40 +152,23 @@
                                         {$row["publish_company"]}
                                         <input type=\"hidden\" id=\"publish_company\" name=\"publish_company\" value=\"{$row["publish_company"]}\">
                                     </th>
-                                    <th>
-                                        {$row["director"]}
-                                    </th>
-                                    <th>
-                                        {$row["actor"]}
-                                    </th>
-                                    <th>
-                                        {$row["duration"]}
-                                    </th>
-                                    <th>
-                                        {$row["language"]}
-                                    </th>
-                                    <th>
-                                        {$row["tot_qty"]}
-                                    </th>
-                                    <th>
-                                        {$row["avail_qty"]}
-                                    </th>
-                                    <th>
-                                        <button class=\"act-btn\" id=\"reg-btn\">
-                                            預約
-                                        </button>
-                                    </th>
-                                </tr>
-                            </form>";
+                                    <th>{$row["director"]}</th>
+                                    <th>{$row["actor"]}</th>
+                                    <th>{$row["duration"]}</th>
+                                    <th>{$row["language"]}</th>
+                                    <th>{$row["tot_qty"]}</th>
+                                    <th>{$row["avail_qty"]}</th>
+                                    <th>";
+                        if ($row["tot_qty"] > 0) {
+                            echo "<button type=\"submit\" onclick=\"solve()\">預約</button>";
+                        }
+                        echo "</th></tr></form>";
                     }
                 }
             } else {
-                echo "<p>{$option}<br/><p>";
                 echo "<p>0 results<br/><p>";
             }
             echo "</div>";
-        }else{
-            //echo "<p><h2 align='center'><font color='#a66d2f'>資料不完全</font><br/></h2><br/><p>";
         }
     ?>
 

@@ -14,6 +14,7 @@ if (!isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="alert.js"></script>
 </head>
 <body>
     <nav class="navbar">

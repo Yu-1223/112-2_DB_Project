@@ -5,10 +5,6 @@ $servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
 $dbname = "team4";
-/*$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -49,11 +45,13 @@ $check_sql = "select * from activity
 $result = $conn->query($check_sql);
 
 if ($result->num_rows == 0) {
-    echo "<h2 align='center'><font color='#5b554e'>修改失敗!!</font></h2>";
-    echo "<li><a href=\"updateAct_details.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
+    $message = "修改失敗";
+    $location = "updateAct_details.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 } else {
-    echo "<h2 align='center'><font color='#5b554e'>修改成功!!</font></h2>";
-    echo "<li><a href=\"update.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
+    $message = "修改成功";
+    $location = "update.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 }
 
 				

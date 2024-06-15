@@ -5,10 +5,6 @@ $servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
 $dbname = "team4";
-/*$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -34,11 +30,14 @@ $check_sql = "select * from book
 $result = $conn->query($check_sql);
 
 if ($result->num_rows > 0) {
-    echo "<h2 align='center'><font color='#5b554e'>刪除失敗!!</font></h2>";
+    $message = "刪除失敗";
+	$location = "delete.php?msg=" . urlencode($message);
+	header("Location: " . $location);
 } else {
-    echo "<h2 align='center'><font color='#5b554e'>刪除成功!!</font></h2>";
+    $message = "刪除成功";
+	$location = "delete.php?msg=" . urlencode($message);
+	header("Location: " . $location);
 }
-echo "<li><a href=\"delete.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
 
 				
 ?>

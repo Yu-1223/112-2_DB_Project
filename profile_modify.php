@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="alert.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -13,7 +14,7 @@
         <ul class="nav-list">
             <li><a href="index.php">首頁</a></li>
             <li><a href="search.php">館藏搜尋</a></li>
-            <li><a href="activity.html">活動報名</a></li>
+            <li><a href="activity.php">活動報名</a></li>
             <li><a href="profile.php">個人資料</a></li>
         </ul>
     </nav>
@@ -33,10 +34,6 @@
                     $username = "team4";
                     $password = "4pI@3uqfCfzW09Te";
                     $dbname = "team4";
-                    /*$servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "";*/
 
                     // Connecting to and selecting a MySQL database
                     $conn = mysqli_connect($servername, $username, $password, $dbname);

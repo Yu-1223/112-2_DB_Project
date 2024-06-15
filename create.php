@@ -14,17 +14,9 @@ if (!isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="modify.css">
+    <script type="text/javascript" src="alert.js"></script>
 </head>
 <body>
-    <?php
-        include 'session.php';
-        session_start();
-        // Check if the user is logged in
-        if (!isset($_SESSION['ID'])) {
-            header("Location: login.html");
-            exit();
-        }
-    ?>
     <nav class="navbar">
         <div class="navbar-title">
             <img src="lion.png" alt="Icon" class="navbar-icon">獅大圖書館管理系統</div>
@@ -68,11 +60,11 @@ if (!isset($_SESSION['ID'])) {
             </tr>
             <tr>
                 <th>類型</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="genre"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="genre" placeholder="若多於一項則以 ',' 分隔"></td>
             </tr>
             <tr>
                 <th>版本</th>
-                <td bgcolor="#FFFFFF"><input  type="text" name="version" placeholder="若多於一項則以 ',' 分隔"></td>
+                <td bgcolor="#FFFFFF"><input  type="text" name="version"></td>
             </tr>
             <tr>
                 <th>頁數</th>

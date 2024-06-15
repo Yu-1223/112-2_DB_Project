@@ -5,10 +5,6 @@ $servername = "140.122.184.129:3310";
 $username = "team4";
 $password = "4pI@3uqfCfzW09Te";
 $dbname = "team4";
-/*$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";*/
 
 // Connecting to and selecting a MySQL database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -27,10 +23,14 @@ $user_id_o = $_POST['user_id_o'];
 $book_id_o = $_POST['book_id_o'];
 $queue_o = $_POST['queue_o'];
 $estimation_date_o = $_POST['estimation_date_o'];
+$estimation_date_o = new DateTime("{$estimation_date_o}");
+$estimation_date_o = $estimation_date_o->format('Y-m-d');
 $user_id = $_POST['user_id'];
 $book_id = $_POST['book_id'];
 $queue = $_POST['queue'];
 $estimation_date = $_POST['estimation_date'];
+$estimation_date = new DateTime("{$estimation_date}");
+$estimation_date = $estimation_date->format('Y-m-d');
 
 $update_sql = "update book_reservation
                 set user_id={$user_id}, book_id={$book_id}, queue={$queue}, estimation_date='{$estimation_date}'
@@ -41,11 +41,13 @@ $check_sql = "select * from book_reservation
 $result = $conn->query($check_sql);
 
 if ($result->num_rows == 0) {
-    echo "<h2 align='center'><font color='#5b554e'>修改失敗!!</font></h2>";
-    echo "<li><a href=\"updateBookes_details.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
+    $message = "修改失敗";
+    $location = "updateBookRes_details.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 } else {
-    echo "<h2 align='center'><font color='#5b554e'>修改成功!!</font></h2>";
-    echo "<li><a href=\"update.php\"><font color='#5b554e'>回到上一頁</font></a></li>";
+    $message = "修改成功";
+    $location = "update.php?msg=" . urlencode($message);
+    header("Location: " . $location);
 }
 
 				
