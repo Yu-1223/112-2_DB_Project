@@ -127,10 +127,10 @@ if (isset($_POST['user_id']) && isset($_POST['book_id']) && isset($_POST['borrow
 
     
     $create_sql = "insert into book_borrow(user_id,book_id,staff_id,borrow_date,return_ddl,status)
-                    values ({$user_id},{$book_id},{$staff_id},'{$borrow_date}','{$return_ddl}','borrowed');";
+                    values ({$user_id},{$book_id},{$staff_id},'{$borrow_date}','{$return_ddl}',0);";
     $result = $conn->query($create_sql);
     $check_sql = "select * from book_borrow
-                    where user_id={$user_id} and book_id={$book_id} and staff_id={$staff_id} and borrow_date='{$borrow_date}' and return_ddl='{$return_ddl}' and status='borrowed';";
+                    where user_id={$user_id} and book_id={$book_id} and staff_id={$staff_id} and borrow_date='{$borrow_date}' and return_ddl='{$return_ddl}' and status=0;";
     $result = $conn->query($check_sql);
     if ($result->num_rows == 0) {
         $message = "新增失敗";

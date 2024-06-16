@@ -124,10 +124,10 @@ if (isset($_POST['user_id']) && isset($_POST['dvd_id']) && isset($_POST['borrow_
     }
     
     $create_sql = "insert into dvd_borrow
-                    values ({$user_id},{$dvd_id},{$staff_id},'{$borrow_date}','{$return_ddl}','borrowed');";
+                    values ({$user_id},{$dvd_id},{$staff_id},'{$borrow_date}','{$return_ddl}',0);";
     $result = $conn->query($create_sql);
     $check_sql = "select * from dvd_borrow
-                    where user_id={$user_id} and dvd_id={$dvd_id} and staff_id={$staff_id} and borrow_date='{$borrow_date}' and return_ddl='{$return_ddl}' and status='borrowed';";
+                    where user_id={$user_id} and dvd_id={$dvd_id} and staff_id={$staff_id} and borrow_date='{$borrow_date}' and return_ddl='{$return_ddl}' and status=0;";
     $result = $conn->query($check_sql);
     if ($result->num_rows == 0) {
         $message = "新增失敗";
